@@ -1,5 +1,5 @@
 PKG_NAME := pypi-jsonschema
-URL = https://files.pythonhosted.org/packages/42/d9/bfc795bb02d0cee772f7b339c5aa6fdd8778e852951e62603556d6143fbc/jsonschema-4.6.1.tar.gz
+URL = https://files.pythonhosted.org/packages/7c/0d/d19c78ccd17814818497fb4be515638fd707afd98d7dc102f0ad7297e0da/jsonschema-4.15.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
