@@ -4,7 +4,7 @@
 #
 Name     : pypi-jsonschema
 Version  : 4.15.0
-Release  : 88
+Release  : 89
 URL      : https://files.pythonhosted.org/packages/7c/0d/d19c78ccd17814818497fb4be515638fd707afd98d7dc102f0ad7297e0da/jsonschema-4.15.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/7c/0d/d19c78ccd17814818497fb4be515638fd707afd98d7dc102f0ad7297e0da/jsonschema-4.15.0.tar.gz
 Summary  : An implementation of JSON Schema validation for Python
