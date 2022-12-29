@@ -4,7 +4,7 @@
 #
 Name     : pypi-jsonschema
 Version  : 4.17.3
-Release  : 92
+Release  : 93
 URL      : https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/36/3d/ca032d5ac064dff543aa13c984737795ac81abc9fb130cd2fcff17cfabc7/jsonschema-4.17.3.tar.gz
 Summary  : An implementation of JSON Schema validation for Python
@@ -20,6 +20,9 @@ BuildRequires : pypi(hatch_fancy_pypi_readme)
 BuildRequires : pypi(hatch_vcs)
 BuildRequires : pypi(hatchling)
 BuildRequires : pypi-pytest
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 ==========
@@ -77,15 +80,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672164216
+export SOURCE_DATE_EPOCH=1672285130
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
@@ -109,8 +112,8 @@ pytest || :
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-jsonschema
-cp %{_builddir}/jsonschema-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pypi-jsonschema/2de1a0a3674903238a664ace5d3acc66a7d546c7
-cp %{_builddir}/jsonschema-%{version}/json/LICENSE %{buildroot}/usr/share/package-licenses/pypi-jsonschema/6808b97edf6d2c189571af702b95916168ff7db8
+cp %{_builddir}/jsonschema-%{version}/COPYING %{buildroot}/usr/share/package-licenses/pypi-jsonschema/2de1a0a3674903238a664ace5d3acc66a7d546c7 || :
+cp %{_builddir}/jsonschema-%{version}/json/LICENSE %{buildroot}/usr/share/package-licenses/pypi-jsonschema/6808b97edf6d2c189571af702b95916168ff7db8 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
