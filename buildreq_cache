@@ -1,2 +1,5 @@
-4.17.3
+4.18.4
+pypi(attrs)
+pypi(jsonschema_specifications)
+pypi(referencing)
 pypi-pytest
