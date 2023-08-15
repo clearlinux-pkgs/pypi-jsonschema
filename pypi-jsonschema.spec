@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-jsonschema
-Version  : 4.18.4
-Release  : 95
-URL      : https://files.pythonhosted.org/packages/e5/a2/3e03efdd25f93e1296d0454a7680456fda2925f2ff624bf43855d785b3bd/jsonschema-4.18.4.tar.gz
-Source0  : https://files.pythonhosted.org/packages/e5/a2/3e03efdd25f93e1296d0454a7680456fda2925f2ff624bf43855d785b3bd/jsonschema-4.18.4.tar.gz
+Version  : 4.19.0
+Release  : 96
+URL      : https://files.pythonhosted.org/packages/99/ba/e51d376c6160d27669c7a9ad0b61d9cbd58fa58be6e6ddc0e7e0b6e6aa40/jsonschema-4.19.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/99/ba/e51d376c6160d27669c7a9ad0b61d9cbd58fa58be6e6ddc0e7e0b6e6aa40/jsonschema-4.19.0.tar.gz
 Summary  : An implementation of JSON Schema validation for Python
 Group    : Development/Tools
 License  : MIT
@@ -75,10 +75,10 @@ python3 components for the pypi-jsonschema package.
 
 
 %prep
-%setup -q -n jsonschema-4.18.4
-cd %{_builddir}/jsonschema-4.18.4
+%setup -q -n jsonschema-4.19.0
+cd %{_builddir}/jsonschema-4.19.0
 pushd ..
-cp -a jsonschema-4.18.4 buildavx2
+cp -a jsonschema-4.19.0 buildavx2
 popd
 
 %build
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690881688
+export SOURCE_DATE_EPOCH=1692124284
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
